@@ -1,17 +1,13 @@
 import express from "express";
-import { MongoClient } from "mongodb";
+import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 const app = express();
-const dbClient = new MongoClient(process.env.MONGO);
-
-try {
-  const database = dbClient.db("mern-estate");
-} finally {
-  await dbClient.close();
-}
+mongoose.connect(process.env.MONGO).then(() => {
+  console.log("connected");
+});
 
 app.listen(3000, () => {
   console.log("Server running on port 3000");
