@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    avatar:{
+      type:String,
+      default:"https://unsplash.com/photos/bokeh-shot-of-blue-and-yellow-bird-FsXq3xu72bs"
+    }
   },
   { timestamps: true }
 );
